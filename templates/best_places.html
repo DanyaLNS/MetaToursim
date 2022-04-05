@@ -1,0 +1,11 @@
+{% block title %}
+Топ 100 лучших мест
+{% endblock %}
+{% block body %}
+<h1>Нашей редакцией были выбраные следующие наиболее интересные места для посещения:</h1>
+{% endblock %}
+
+{% for place in places %}
+<div>{{ place }}</div>
+<br>
+{% endfor %}

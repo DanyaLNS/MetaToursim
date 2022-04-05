@@ -1,0 +1,11 @@
+{% block title %}
+<h1>Список пользовательских запросов:</h1>
+{% endblock %}
+{% block body %}
+<h3>Список пользовательских запросов, подлежащих обработке:</h3>
+{% for req in reqs %}
+<div>Маршрут: {{ req.city_from }} - {{ req.city_to }}</div>
+<p>Сроки путешествия: {{ req.date_there.date() }} - {{ req.date_back.date() }}</p>
+<div>***</div>
+{% endfor %}
+{% endblock %}
