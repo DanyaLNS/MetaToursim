@@ -2,6 +2,7 @@ import re
 from bs4 import BeautifulSoup
 import requests
 
+
 def get_best_places():
     url = "https://lifehacker.ru/special/100places/"
     req = requests.get(url)
@@ -18,4 +19,3 @@ def get_best_places():
         best_places_list.append(text)
 
     return best_places_list
-

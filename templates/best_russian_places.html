@@ -1,0 +1,11 @@
+{% block title %}
+Топ лучших мест в России для туризма и отдыха
+{% endblock %}
+{% block body %}
+<h1>Нашей редакцией были выбраные следующие наиболее интересные места России для посещения:</h1>
+{% endblock %}
+
+{% for russian_place in russian_places %}
+{{ russian_place|safe }}
+<br>
+{% endfor %}

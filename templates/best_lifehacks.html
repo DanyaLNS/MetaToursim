@@ -1,0 +1,13 @@
+{% block title %}
+Топ 28 лучших лайфхаков для путешественников
+{% endblock %}
+{% block body %}
+<h1>Нашей редакцией были выбраные следующие наиболее интересные лайфхаки:</h1>
+{% endblock %}
+
+{% for lifehack in lifehacks %}
+<div>{{ lifehack[0] }}</div>
+<br>
+<img src="{{ lifehack[1] }}">
+<br>
+{% endfor %}

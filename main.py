@@ -3,7 +3,7 @@ from collections import namedtuple
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, redirect, request
 from datetime import datetime
-from parsers import best_places_parser
+from parsers import best_places_parser, best_lifehacks_parser, best_russian_places_parser
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///requests.db'
@@ -39,6 +39,16 @@ def user_request():
 @app.route('/best_places')
 def best_places():
     return render_template('best_places.html', places=best_places_parser.get_best_places())
+
+
+@app.route('/best_russian_places')
+def best_russian_places():
+    return render_template('best_russian_places.html', russian_places=best_russian_places_parser.get_best_russian_places())
+
+
+@app.route('/best_lifehacks')
+def best_lifehacks():
+    return render_template('best_lifehacks.html', lifehacks=best_lifehacks_parser.get_best_lifehacks())
 
 
 @app.route('/articles')
