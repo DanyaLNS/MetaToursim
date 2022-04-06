@@ -3,8 +3,29 @@ from collections import namedtuple
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, redirect, request
 from datetime import datetime
+from PIL import Image
 from parsers import best_places_parser
-from api import  current_weather
+from api import current_weather
+import sqlite3
+import matplotlib.pyplot as plt
+
+def create_popularity_of_cities_diagram():
+    conn = sqlite3.connect('requests.db')
+    cur = conn.cursor()
+    cur.execute("SELECT city_to, COUNT(city_to) FROM user_request GROUP BY city_to;")
+    # Список кортежей, в которых 1 элемент - название города, а 2 - количество повторений
+    query_result = cur.fetchall()
+    x = []
+    y = []
+    for element in query_result:
+        x.append(element[0])
+        y.append(element[1])
+
+    plt.title('Популярность городов', fontsize=16)
+    plt.xlabel('Город', fontsize=12)
+    plt.ylabel('Количество запросов', fontsize=12)
+    plt.bar(x, y)
+    plt.savefig('statistics/diagram1.png')
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///requests.db'
@@ -57,13 +78,12 @@ def articles():
     return render_template('articles.html')
 
 
-
-
-
 @app.route('/statistics', methods=['GET'])
 def statistics():
     reqs = UserRequest.query.order_by(UserRequest.date_there).all()
-    return render_template('statistics.html', reqs=reqs)
+    create_popularity_of_cities_diagram()
+    diagram = Image.open('statistics/diagram1.png')
+    return render_template('statistics.html', reqs=reqs, diagram=diagram)
 
 
 @app.route('/weather', methods=['POST', 'GET'])
@@ -74,6 +94,7 @@ def weather():
         city = request.form['city']
         weather = current_weather.get_current_weather(city)
     return render_template('weather.html', weather=weather, place=city)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
