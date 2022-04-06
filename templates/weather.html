@@ -1,0 +1,10 @@
+{% block title %}
+<h1>Погода в городе {{ place }}</h1>
+{% endblock %}
+{% block body %}
+<form method="post">
+    <input type="text" name="city" id="city" placeholder="Город">
+    <button type="submit" href="/weather">Показать прогноз</button>
+</form>
+{{ weather }}
+{% endblock %}

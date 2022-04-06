@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, redirect, request
 from datetime import datetime
 from parsers import best_places_parser
+from api import  current_weather
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///requests.db'
@@ -22,32 +23,13 @@ class UserRequest(db.Model):
         return '<Request %r' % self.id
 
 
-Message = namedtuple('Message', 'text tag')
-messages = []
-
-
 @app.route('/', methods=['GET'])
 def index():
     return render_template("index.html")
 
 
-@app.route('/user_request', methods=['GET'])
+@app.route('/user_request', methods=['GET', 'POST'])
 def user_request():
-    return render_template("user_request.html", messages=messages)
-
-
-@app.route('/best_places')
-def best_places():
-    return render_template('best_places.html', places=best_places_parser.get_best_places())
-
-
-@app.route('/articles')
-def articles():
-    return render_template('articles.html')
-
-
-@app.route('/avia', methods=['GET', 'POST'])
-def avia():
     if request.method == "POST":
         city_from = request.form['city_from']
         city_to = request.form['city_to']
@@ -62,7 +44,20 @@ def avia():
         except:
             return "При обработке запроса произошла ошибка"
     else:
-        return render_template('avia.html', messages=messages)
+        return render_template("user_request.html")
+
+
+@app.route('/best_places')
+def best_places():
+    return render_template('best_places.html', places=best_places_parser.get_best_places())
+
+
+@app.route('/articles')
+def articles():
+    return render_template('articles.html')
+
+
+
 
 
 @app.route('/statistics', methods=['GET'])
@@ -71,13 +66,14 @@ def statistics():
     return render_template('statistics.html', reqs=reqs)
 
 
-@app.route('/add_message', methods=['POST'])
-def add_message():
-    text = request.form['text']
-    tag = request.form['tag']
-    messages.append(Message(text, tag))
-    return redirect(url_for('user_request'))
-
+@app.route('/weather', methods=['POST', 'GET'])
+def weather():
+    weather = {}
+    city = ""
+    if request.method == "POST":
+        city = request.form['city']
+        weather = current_weather.get_current_weather(city)
+    return render_template('weather.html', weather=weather, place=city)
 
 if __name__ == "__main__":
     app.run(debug=True)

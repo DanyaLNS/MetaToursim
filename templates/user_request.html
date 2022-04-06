@@ -1,6 +1,25 @@
 {% block title %}
-<h1>Наш сервис позволяет подобрать билеты по следующим категориями:</h1>
+<h1>Наш сервис позволяет подобрать билеты</h1>
+
+<h2>Информация о поездке</h2>
+<h3>Введите в поля место и дату запланированной поездки</h3>
+<body>
+<form method="post">
+    <input type="text" name="city_from" id="city_from" placeholder="Откуда">
+    <input type="text" name="city_to" id="city_to" placeholder="Куда">
+    <input type="date" name="date_there" id="date_there" placeholder="Когда">
+    <input type="date" name="date_back" id="date_back" placeholder="Обратно">
+    <button type="submit" href="/">Полетели!!!!</button>
+</form>
+</body>
+
 {% endblock %}
 {% block body %}
-<a href="{{ url_for('avia') }}">Авиабилеты</a>
+<a href="https://www.aviasales.ru/?params=MOW1">Авиабилеты</a><br>
+<a href="https://www.airbnb.ru/">Отели</a><br>
+<a href="https://www.tutu.ru/">Электрички, Ж/Д билеты, автобусы</a><br>
+<a href="https://www.cherehapa.ru/?partnerId=2780&marker=715e97e9e15745d2bf79fbd5c-121072">Страхование</a><br>
+<a href="https://www.economybookings.com/?btag=travelpayouts&tpo_uid=e83d7baeaedf4bb284535f51c-121072">Аренда автомобилей</a><br>
+<a href="https://kiwitaxi.ru/?utm_source=travelpayouts&tpo=06898d9d909e46ef9d52aec4f-121072">Трансферы</a><br>
+<a href="https://weatlas.com/?utm_source=travelpayouts&aid=10690&said=28787a31f72842a784d225599-121072">Экскурсии</a><br>
 {% endblock %}
