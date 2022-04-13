@@ -1,8 +1,9 @@
-{% block title %}
-<h1>Статистика</h1>
-<img src="statistics/diagram1.png">
-{% endblock %}
+{% extends "base.html" %}
+
+{% block title %} Статистика {% endblock %}
+
 {% block body %}
+<img src="statistics/diagram1.png">
 <h3>Список пользовательских запросов, подлежащих обработке:</h3>
 {% for req in reqs %}
 <div>Маршрут: {{ req.city_from }} - {{ req.city_to }}</div>

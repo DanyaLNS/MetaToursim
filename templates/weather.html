@@ -1,6 +1,5 @@
-{% block title %}
-<h1>Погода в городе {{ place }}</h1>
-{% endblock %}
+{% extends "base.html" %}
+{% block title %} Погода в городе {{ place }} {% endblock %}
 {% block body %}
 <form method="post">
     <input type="text" name="city" id="city" placeholder="Город">
