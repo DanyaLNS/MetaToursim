@@ -4,15 +4,33 @@
 {% block body %}
 <div class="ms-md-5 mt-4">
     <h2 class="mb-3">Информация о поездке</h2>
-    <p>Введите в поля место и дату запланированной поездки</p>
+    <span class="p1 border border-secondary border-bottom-0">Введите данные о поездке</span>
 </div>
 
-<form method="post" class="ms-4 mt-3 mb-3 ps-3">
-    <input class="ms-1" type="text" name="city_from" id="city_from" placeholder="Откуда">
-    <input class="ms-2" type="text" name="city_to" id="city_to" placeholder="Куда">
-    <input class="ms-2 me-2" type="date" name="date_there" id="date_there" placeholder="Когда">
-    <input class="me-4" type="date" name="date_back" id="date_back" placeholder="Обратно"><button type="submit" class="btn btn-outline-success mb-3" href="/statistics">Confirm identity</button>
-</form>
+    <form method="post" class="ms-4 mt-3 mb-3 ps-3" novalidate>
+        <div class="row">
+        <div class="col-2">
+    <input type="text" class="form-control" id="validationCustom01" name="city_from" id="city_from" placeholder="Откуда" required>
+        <div class="valid-feedback">
+          Все хорошо!
+        </div>
+        </div>
+        <div class="col-2">
+    <input type="text" class="form-control" id="validationCustom03" name="city_to" id="city_to" placeholder="Куда" required>
+        <div class="valid-feedback">
+          Все хорошо!
+        </div>
+        </div>
+            <div class="col-2">
+     <input class="me-4 form-control" type="date" name="date_back" id="date_back" placeholder="Обратно"></div>
+        <div class="col-2"><input class=" me-2 form-control" type="date" name="date_there" id="date_there" placeholder="Когда"></div>
+        <div class="col-2"><button type="submit" class="btn btn-outline-success mb-3" href="/statistics">Перейти</button></div>
+</div>
+        <!--<input class="ms-1" type="text" name="city_from" id="city_from" placeholder="Откуда">
+        <input class="ms-2" type="text" name="city_to" id="city_to" placeholder="Куда">
+       -->
+
+    </form>
 
 <div class="row align-items-md-stretch py-4 ms-md-4 me-md-4">
       <div class="col-md-6">
