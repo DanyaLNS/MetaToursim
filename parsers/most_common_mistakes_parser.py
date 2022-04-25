@@ -8,16 +8,35 @@ def get_most_common_mistakes():
     src = req.text
 
     soup = BeautifulSoup(src, "html.parser")
-    all_most_common_mistakes_headers = soup.find_all("h2")[:10]
+    all_most_common_mistakes_tags = soup.find_all("h2")[:10]
+    all_most_common_mistakes_images = soup.find_all("img")[76:]
+    for i in range(len(all_most_common_mistakes_images)):
+        print(all_most_common_mistakes_images[i])
+    all_most_common_mistakes_images = all_most_common_mistakes_images[:10]
 
     most_common_mistakes = []
-    for el in all_most_common_mistakes_headers:
-        section = []
-        current_sibling = el
-        while current_sibling.name != "div":
-            section.append(current_sibling)
-            current_sibling = current_sibling.nextSibling
-        section.append(current_sibling)
-        most_common_mistakes.append(section)
+    for i in range(10):
+        tag = all_most_common_mistakes_tags[i]
+        header = tag.text
+        texts = []
+        while True:
+            if tag is None:
+                break
+            else:
+                tag = tag.next_element
+                if tag.name:
+                    if tag.name == "div":
+                        break
+                    if tag.name == "p":
+                        texts.append(tag.text)
+                    if tag.name == "li":
+                        texts.append("- " + tag.text)
+
+        image_src = all_most_common_mistakes_images[i]["src"]
+
+        most_common_mistakes.append([header, texts, image_src])
+
+
+
 
     return most_common_mistakes

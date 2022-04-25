@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% for place in places %}
-<div>{{ place }}</div>
+<h2>{{ place[0] }}</h2>
 <br>
+<p>{{ place[1] }}</p>
+<br>
+<img src="{{ place[2] }}">
 {% endfor %}

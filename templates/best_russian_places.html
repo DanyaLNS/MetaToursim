@@ -6,6 +6,15 @@
 {% endblock %}
 
 {% for russian_place in russian_places %}
-{{ russian_place|safe }}
+<h2>{{ russian_place[0] }}</h2>
+<p>{{ russian_place[1] }}</p>
+<h3>{{ russian_place[2] }}</h3>
+<ul>
+    <li>{{ russian_place[3] }}</li>
+    <li>{{ russian_place[4] }}</li>
+    <li>{{ russian_place[5] }}</li>
+</ul>
+<br>
+<img src="{{ russian_place[6] }}">
 <br>
 {% endfor %}

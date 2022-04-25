@@ -15,7 +15,17 @@ def get_essential_things():
 
     essential_things = []
     for el in list(zip(all_essential_things_headers, all_essential_things_images, all_essential_things_text, all_essential_things_list)):
-        section = [el[0].text, el[1].next["data-src-img"], el[2].text, el[3]]
-        essential_things.append(section)
+        tag = el[3]
+        lis = []
+        while tag.next_element:
+            tag = tag.next_element
+            if tag.name:
+                if tag.name == "a":
+                    continue
+                if tag.name != "li":
+                    break
+                lis.append(tag.text)
+
+        essential_things.append([el[0].text, el[1].next["data-src-img"], el[2].text, lis])
 
     return essential_things
