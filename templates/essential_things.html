@@ -1,0 +1,20 @@
+{% block title %}
+Необходимые в путешествии ии поездке вещи
+{% endblock %}
+{% block body %}
+<h1>Нашей редакцией был создан список необходимых в путешествии или поездке вещей:</h1>
+{% endblock %}
+
+{% for essential_thing in essential_things %}
+<h3>{{ essential_thing[0] }}</h3>
+<br>
+<img src="{{ essential_thing[1] }}">
+<br>
+<p>{{ essential_thing[2] }}</p>
+<br>
+<ul>
+    {% for current_li in essential_thing[3] %}
+    <li>{{ current_li }}</li>
+    {% endfor %}
+</ul>
+{% endfor %}

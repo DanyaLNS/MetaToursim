@@ -1,0 +1,14 @@
+{% block title %}
+Самых частые ошибки начинающих путешественников
+{% endblock %}
+{% block body %}
+<h1>Нашей редакцией был создан список самых частых ошибок начинающих путешественников:</h1>
+{% endblock %}
+
+{% for most_common_mistake in most_common_mistakes %}
+    <h2>{{ most_common_mistake[0] }}</h2>
+    {% for text in most_common_mistake[1] %}
+        <p>{{ text }}</p>
+    {% endfor %}
+    <img src="{{ most_common_mistake[2] }}">
+{% endfor %}
