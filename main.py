@@ -4,11 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, redirect, request
 from datetime import datetime
 from PIL import Image
-from parsers import best_places_parser
 from api import current_weather
 import sqlite3
 import matplotlib.pyplot as plt
 from parsers import best_places_parser, best_lifehacks_parser, best_russian_places_parser, essential_things_parser, most_common_mistakes_parser
+
 
 def create_popularity_of_cities_diagram():
     conn = sqlite3.connect('requests.db')
@@ -27,6 +27,7 @@ def create_popularity_of_cities_diagram():
     plt.ylabel('Количество запросов', fontsize=12)
     plt.bar(x, y)
     plt.savefig('statistics/diagram1.png')
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///requests.db'
@@ -50,14 +51,9 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/user_request', methods=['GET', 'POST'])
-def user_request():
-    return render_template("user_request.html", messages=messages)
-
-
-@app.route('/best_places')
-def best_places():
-    return render_template('best_places.html', places=best_places_parser.get_best_places())
+# @app.route('/user_request', methods=['GET', 'POST'])
+# def user_request():
+#     return render_template("user_request.html", messages=messages)
 
 
 @app.route('/best_russian_places')
@@ -78,11 +74,6 @@ def essential_things():
 @app.route('/most_common_mistakes')
 def most_common_mistakes():
     return render_template('most_common_mistakes.html', most_common_mistakes=most_common_mistakes_parser.get_most_common_mistakes())
-
-
-@app.route('/articles')
-def articles():
-    return render_template('articles.html')
 
 
 @app.route('/avia', methods=['GET', 'POST'])

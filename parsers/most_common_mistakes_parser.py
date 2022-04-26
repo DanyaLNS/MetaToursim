@@ -10,8 +10,6 @@ def get_most_common_mistakes():
     soup = BeautifulSoup(src, "html.parser")
     all_most_common_mistakes_tags = soup.find_all("h2")[:10]
     all_most_common_mistakes_images = soup.find_all("img")[76:]
-    for i in range(len(all_most_common_mistakes_images)):
-        print(all_most_common_mistakes_images[i])
     all_most_common_mistakes_images = all_most_common_mistakes_images[:10]
 
     most_common_mistakes = []
@@ -35,8 +33,5 @@ def get_most_common_mistakes():
         image_src = all_most_common_mistakes_images[i]["src"]
 
         most_common_mistakes.append([header, texts, image_src])
-
-
-
 
     return most_common_mistakes

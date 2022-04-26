@@ -20,5 +20,6 @@ def get_best_places():
         image_src = all_places_images[i]["data-content-cover-bg"]
 
         best_places_list.append([str(i + 1) + ": " + header, text, image_src])
+    print(best_places_list)
 
     return best_places_list

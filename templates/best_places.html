@@ -4,12 +4,12 @@
 {% endblock %}
 {% block body %}
 <h1>Нашей редакцией были выбраные следующие наиболее интересные места для посещения:</h1>
+{% for place in places %}
+    <h2>{{ place[0] }}</h2>
+    <br>
+    <p>{{ place[1] }}</p>
+    <br>
+    <img src="{{ place[2] }}">
+{% endfor %}
 {% endblock %}
 
-{% for place in places %}
-<h2>{{ place[0] }}</h2>
-<br>
-<p>{{ place[1] }}</p>
-<br>
-<img src="{{ place[2] }}">
-{% endfor %}
