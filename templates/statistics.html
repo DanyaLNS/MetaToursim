@@ -4,19 +4,28 @@
 
 {% block body %}
 
-<h3>Последние пользовательские запросы</h3>
-{% for req in reqs %}
 <div class="media">
-  <div class="media-body mx-5">
-    <h5>Маршрут: {{ req.city_from }} - {{ req.city_to }}</h5>
-      <img class="d-flex align-self-start mx-5" src="/images/pathToYourImage.png" alt="Generic placeholder image">
-      <ul>
-    <li class="list-group-item my-4">Дата поездки: {{ req.date_there.date() }} - {{ req.date_back.date() }}</li>
-      </ul>
+  <div class="media-body mx-lg-5">
+ <table class="table table-striped caption-top">
+ <caption>User requests</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Маршрут</th>
+      <th scope="col">Дата поездки</th>
+    </tr>
+  </thead>
+       <tbody>{% for req in reqs %}
+       <tr>
+         <th scope="row"><></th>
+         <th scope="row">{{ req.city_from }} - {{ req.city_to }}</th>
+         <td scope="row">{{ req.date_there.date() }} - {{ req.date_back.date() }}</td>
+       </tr>{% endfor %}
+       </tbody>
+     </table>
+
   </div>
 </div>
 
 
-
-{% endfor %}
 {% endblock %}

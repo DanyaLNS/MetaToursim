@@ -3,41 +3,86 @@
 {% block title %} Главная страница {% endblock %}
 
 {% block body %}
-<div class="p-4 p-md-5 mb-4 text-white rounded bg-secondary">
+
+<main>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.grunge.com/img/gallery/mysteries-of-the-mountains-youve-never-heard-of/l-intro-1629124107.jpg"
+           class="d-block" width="1400" height="650" alt="Слайд 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Метка первого слайда</h5>
+        <p>Некоторый репрезентативный заполнитель для первого слайда.</p>
+      </div>
+    </div>
+    <div class="carousel-item" src="https://www.neizvestniy-geniy.ru/images/works/photo/2019/02/2001523_1.jpg">
+      <img  class="d-block w-100" alt="Слайд 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Метка второго слайда</h5>
+        <p>Некоторый репрезентативный заполнитель для второго слайда.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.pinimg.com/originals/b5/b0/3f/b5b03f887ef52b6e7af00f1af7af05f9.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Метка третьего слайда</h5>
+        <p>Некоторый репрезентативный заполнитель для третьего слайда.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Предыдущий</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Следующий</span>
+  </button>
+</div>
+</main>
+
+<!--div class="p-4 p-md-5 mb-4 text-white rounded bg-secondary">
     <div class="col-md-6 px-0">
       <h1 class="display-4">Добро пожаловать на веб-сервис про туризм и путешествия</h1>
       <p class="lead my-3">Наш сервис поможет вам с подбором билетов, статей, уточнением погоды и ...</p>
       <p class="lead mb-0">О_о</p>
     </div>
-  </div>
+  </div-->
 
 <div class="row mb-2 ms-md-4 me-md-4">
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 mt-5 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Билеты</h3>
+          <h3 class="mb-0 py-1 lh-1 fw-bold">Билеты</h3>
 
           <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
           <a href="{{ url_for('avia') }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+         <img src="https://kabekin.com/uploads/converted/16/07/11/1954638209-kabekin18-oYlk-1920x1200-MM-100.jpg"
+              class="d-block" width="250" height="250" alt="Слайд 1">
 
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 mt-5 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Погода</h3>
+          <h3 class="mb-0 py-1 lh-1 fw-bold">Погода</h3>
 
           <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
           <a href="{{ url_for('weather') }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <img src="https://artside.com.ua/home/catalog/product13415/191120182.jpg"
+              class="d-block" width="250" height="250" alt="Слайд 1">
 
         </div>
       </div>
@@ -49,14 +94,14 @@
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Статистика</h3>
+          <h3 class="mb-0 py-1 lh-1 fw-bold">Статистика</h3>
 
           <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
           <a href="{{ url_for('statistics') }}" class="stretched-link">Continue reading</a>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+        <div class="col-auto d-none d-lg-block" style="overflow:hidden;">
+          <img src="https://catherineasquithgallery.com/uploads/posts/2021-03/1614588619_73-p-minimalizm-na-belom-fone-112.png"
+              class="d-block"  width="250" height="250" alt="Слайд 1">
         </div>
       </div>
     </div>
@@ -64,12 +109,13 @@
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Статьи</h3>
+          <h3 class="mb-0 py-1 lh-1 fw-bold">Статьи</h3>
           <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
           <a href="{{ url_for('articles') }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <img src="https://e-oboi.com/wp-content/uploads/2020/12/fotooboi-gory-abstrakcziya-139589159.jpg"
+           class="d-block" width="250" height="250" alt="Слайд 1">
 
         </div>
       </div>
@@ -77,8 +123,8 @@
   </div>
 <footer class="blog-footer">
   <p class="text-center">Web template built for <a href="https://www.mirea.ru/">Project</a> by Mirea Students.</p>
-  <p>
-    <a class="text-center" href="/">Back to top</a>
+  <p class="text-center">
+    <a  href="/">Back to top</a>
   </p>
 </footer>
 {% endblock %}

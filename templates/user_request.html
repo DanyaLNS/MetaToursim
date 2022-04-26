@@ -2,9 +2,10 @@
 {% block title %} Билеты {% endblock %}
 
 {% block body %}
-<div class="ms-md-5 mt-4">
-    <h2 class="mb-3">Информация о поездке</h2>
-    <span class="p1 border border-secondary border-bottom-0">Введите данные о поездке</span>
+<div class="bg-secondary">
+<div class="ms-md-5 bg-secondary">
+    <h2 class="mb-3 display-6 lh-1 fw-bold">Информация о поездке</h2>
+    <p class="text-monospace">Введите данные о поездке</p>
 </div>
 
     <form method="post" class="ms-4 mt-3 mb-3 ps-3" novalidate>
@@ -24,7 +25,7 @@
             <div class="col-2">
      <input class="me-4 form-control" type="date" name="date_back" id="date_back" placeholder="Обратно"></div>
         <div class="col-2"><input class=" me-2 form-control" type="date" name="date_there" id="date_there" placeholder="Когда"></div>
-        <div class="col-2"><button type="submit" class="btn btn-outline-success mb-3" href="/statistics">Перейти</button></div>
+        <div class="col-2"><button type="submit" class="btn btn-info mb-3" href="/statistics">Перейти</button></div>
 </div>
         <!--<input class="ms-1" type="text" name="city_from" id="city_from" placeholder="Откуда">
         <input class="ms-2" type="text" name="city_to" id="city_to" placeholder="Куда">
@@ -34,7 +35,7 @@
 
 <div class="row align-items-md-stretch py-4 ms-md-4 me-md-4">
       <div class="col-md-6">
-        <div class="h-100 p-5 text-white bg-secondary rounded-3">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2>Авиабилеты</h2>
           <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
           <button class="btn btn-outline-light" type="button" onclick="window.location.href = 'https://www.aviasales.ru/?params=MOW1';">Нажми меня</button>
@@ -58,7 +59,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="h-100 p-5 text-white bg-secondary rounded-3">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2>Ж/Д Билеты</h2>
           <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
           <button class="btn btn-outline-light" type="button" onclick="window.location.href = 'https://www.tutu.ru/';">Нажми меня</button>
@@ -67,7 +68,7 @@
     </div>
 <div class="row align-items-md-stretch py-4 ms-md-4 me-md-4">
       <div class="col-md-6">
-        <div class="h-100 p-5 text-white bg-secondary rounded-3">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2>Страхование</h2>
           <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
           <button class="btn btn-outline-light" type="button" onclick="window.location.href = 'https://www.cherehapa.ru/?partnerId=2780&marker=715e97e9e15745d2bf79fbd5c-121072';">Нажми меня</button>
@@ -92,12 +93,12 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="h-100 p-5 text-white bg-secondary rounded-3">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2>Трансферы</h2>
           <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
           <button class="btn btn-outline-light" type="button" onclick="window.location.href = 'https://kiwitaxi.ru/?utm_source=travelpayouts&tpo=06898d9d909e46ef9d52aec4f-121072';">Нажми меня</button>
         </div>
       </div>
 </div>
-
+</div>
 {% endblock %}

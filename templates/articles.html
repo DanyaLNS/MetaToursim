@@ -3,13 +3,90 @@
 Полезные статьи
 {% endblock %}
 {% block body %}
-<a href="{{ url_for('best_places') }}">Топ 100 самых красивых мест планеты...</a>
-<br>
-<a href="{{ url_for('best_russian_places') }}">Топ лучших мест в России для туризма и отдыха...</a>
-<br>
-<a href="{{ url_for('best_lifehacks') }}">Топ 28 лучших лайфхаков для путешественников...</a>
-<br>
-<a href="{{ url_for('essential_things') }}">Необходимые в путешествии вещи...</a>
-<br>
-<a href="{{ url_for('most_common_mistakes') }}">Самые частые ошибки начинающих путешественников...</a>
+<div class="bg-secondary">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 mx-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><a href="{{ url_for('best_places') }}">Топ 100 самых красивых мест планеты...</a></h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="d-flex align-items-center me-3">
+                   <li class="me-auto">
+              </li>
+                <small>Читать</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" >
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><a href="{{ url_for('essential_things') }}">Необходимые в путешествии вещи...</a></h2>
+            <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <small>Читать</small>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><a href="{{ url_for('best_lifehacks') }}">Топ 28 лучших лайфхаков для путешественников...</a></h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                <small>Читать</small>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 mx-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><a href="{{ url_for('best_russian_places') }}">Топ лучших мест в России для туризма и отдыха...</a></h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <small>Читать</small>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><a href="{{ url_for('most_common_mistakes') }}">Самые частые ошибки начинающих путешественников...</a></h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <small>Читать</small>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+        </div>
+
+</div>
 {% endblock %}
