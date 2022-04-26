@@ -3,11 +3,20 @@
 {% block title %} Статистика {% endblock %}
 
 {% block body %}
-<img src="statistics/diagram1.png">
-<h3>Список пользовательских запросов, подлежащих обработке:</h3>
+
+<h3>Последние пользовательские запросы</h3>
 {% for req in reqs %}
-<div>Маршрут: {{ req.city_from }} - {{ req.city_to }}</div>
-<p>Сроки путешествия: {{ req.date_there.date() }} - {{ req.date_back.date() }}</p>
-<div>***</div>
+<div class="media">
+  <div class="media-body mx-5">
+    <h5>Маршрут: {{ req.city_from }} - {{ req.city_to }}</h5>
+      <img class="d-flex align-self-start mx-5" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+      <ul>
+    <li class="list-group-item my-4">Дата поездки: {{ req.date_there.date() }} - {{ req.date_back.date() }}</li>
+      </ul>
+  </div>
+</div>
+
+
+
 {% endfor %}
 {% endblock %}
