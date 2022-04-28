@@ -3,13 +3,13 @@
 Топ 100 лучших мест
 {% endblock %}
 {% block body %}
-<h1>Нашей редакцией были выбраные следующие наиболее интересные места для посещения:</h1>
+
 {% for place in places %}
-    <h2>{{ place[0] }}</h2>
+    <h2 class="lh-1 fw-bold mx-5 mt-3">{{ place[0] }}</h2>
     <br>
-    <p>{{ place[1] }}</p>
+    <p class="mx-5">{{ place[1] }}</p>
     <br>
-    <img src="{{ place[2] }}">
+    <img class="img-fluid mx-5" src="{{ place[2] }}">
 {% endfor %}
 {% endblock %}
 
